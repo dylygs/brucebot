@@ -51,9 +51,15 @@ def amountOfLines(songFile):
 
 # get my account and do stuff with it for testing
 def doStuff(api):
-#    me = api.me()
-#    print(str(me.id) + " " + me.screen_name)
-    print(getRandomLine())
+    #print(getRandomLine())
+    line = getRandomLine()
+    if len(line) > 140: line = getRandomLine()
+    api.update_status(line)
 
 api = authenticate()
-doStuff(api)
+while True:
+    randomSecs = random.randint(21600, 172800) # sleep a random time between 6 hours and 2 days
+    time.sleep(randomSecs)
+    doStuff(api)
+
+

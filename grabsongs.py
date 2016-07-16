@@ -9,7 +9,7 @@ tree = html.fromstring(page.content)
 songs = []
 
 for n in range(1, 51):
-    songs.append(str(tree.xpath("//html/body/div[2]/div[3]/div/div[2]/div[1]/div[1]/strong[" + str(n) + "]/a/text()")).strip("[]\"'").replace("\\", "").lower())
+    songs.append(str(tree.xpath("//html/body/div[2]/div[3]/div/div[2]/div[1]/div[1]/strong[" + str(n) + "]/a/text()")).strip("[]\"',").replace("\\", "").lower())
 
 #print(songs)
 
